@@ -1,0 +1,35 @@
+/* .background{
+  background-image: url("./img/background.jpg");
+} */
+.body {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.imgLayout {
+  position: absolute;
+  width: 186px;
+  top: 97.5px;
+  left: 237.5px;
+}
+.glasses {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+.text {
+  background-color: transparent;
+  color: black;
+}
+.header {
+  height: 100px;
+  background-color: #ffc0cb4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.footer {
+  background-color: transparent;
+  height: 60px;
+}
