@@ -4,13 +4,14 @@
 .body {
   display: flex;
   justify-content: space-around;
-  position: relative;
+  /* position: relative; */
 }
 .imgLayout {
   position: absolute;
   width: 186px;
-  top: 97.5px;
-  left: 237.5px;
+  top: 96.5px;
+  left: 67.1px;
+  /* display: none; */
 }
 .glasses {
   display: flex;
@@ -32,4 +33,13 @@
 .footer {
   background-color: transparent;
   height: 60px;
+}
+.tag {
+  position: absolute;
+  background-color: #ffc0cb7a;
+  bottom: 0px;
+  padding-left: 10px;
+}
+.tag h3 {
+  color: blue;
 }

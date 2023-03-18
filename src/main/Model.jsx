@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import main from "./main.module.css";
+import data from "./data.json";
 
 function Model() {
-  const [glassUrl, setGlassUrl] = useState("./img/v1.png");
+  const [ele, setEle] = useState({url: "./img/v1.png", name: "GUCCI G8850U",desc: "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip." });
+  // 
+  const handleClick = (h1, h2, h3) => {
+    setEle({url: `${h1}`, name:`${h2}`, desc: `${h3}` });
+  };
   return (
     <div className="container">
       <div className="row">
         <div className={main.body}>
-          <div className="col-sm-3">
-            <img src={glassUrl} alt="layout" className={main.imgLayout} />
+          <div className="col-sm-3" style={{position:"relative"}}>
+            <img src={ele.url} alt="layout" className={main.imgLayout} id="glLayout" />
             <img
               src="./img/model.jpg"
               alt="model"
               style={{ maxWidth: "100%" }}
             />
+            <div className={main.tag}>
+              <h3>{ele.name}</h3>
+              <p>{ele.desc}</p>
+            </div>
           </div>
           <div className="col-sm-3">
             <img
@@ -27,69 +36,21 @@ function Model() {
       <div className={main.glasses}>
         <div className="col-sm-10" style={{ backgroundColor: "#ffc0cb6b" }}>
           <div className="row">
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v1.png")}>
-              <img
-                src="./img/v1.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v2.png")}>
-              <img
-                src="./img/v2.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v3.png")}>
-              <img
-                src="./img/v3.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v4.png")}>
-              <img
-                src="./img/v4.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v5.png")}>
-              <img
-                src="./img/v5.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v6.png")}>
-              <img
-                src="./img/v6.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v7.png")}>
-              <img
-                src="./img/v7.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v8.png")}>
-              <img
-                src="./img/v8.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
-            <div className="col-sm-2" onClick={() => setGlassUrl("./img/v9.png")}>
-              <img
-                src="./img/v9.png"
-                alt="g1"
-                style={{ maxWidth: "100%", padding: "10px" }}
-              />
-            </div>
+            {data.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className="col-sm-2"
+                  onClick={() => handleClick(`${item.url}`, `${item.name}`, `${item.desc}`)}
+                >
+                  <img
+                    src={item.url}
+                    alt={data.name}
+                    style={{ maxWidth: "100%", padding: "10px" }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

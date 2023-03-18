@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./main.module.css";
+import data from "./data.json";
 function Glasses() {
   return (
     <div className="container">
