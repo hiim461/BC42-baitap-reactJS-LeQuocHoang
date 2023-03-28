@@ -3,6 +3,7 @@ import ProductForm from "./ProductForm";
 import ProductList from "./ProductList";
 import SearchProduct from "./SearchProduct";
 import axios from "axios";
+import Notifi from "./Notifi";
 
 function ProductManagement() {
   //state danh sach san pham
@@ -13,6 +14,9 @@ function ProductManagement() {
 
   //state searchName
   const [searchByName, setSearchByName] = useState("");
+
+  //state notify
+  const [showNotifi, setShowNotifi] = useState({ isShow: false, type: "" });
 
   //Call API get products
   const fetchProducts = async () => {
@@ -29,6 +33,7 @@ function ProductManagement() {
     } catch (error) {
       alert(error);
     }
+    setShowNotifi({ isShow: false, type: "" });
   };
 
   //Submit Form
@@ -37,21 +42,25 @@ function ProductManagement() {
     try {
       if (id) {
         // update
+        // debugger;
         await axios.put(
           `https://640acb7a65d3a01f98076160.mockapi.io/products/${id}`,
           payLoad
         );
+        setShowNotifi({ isShow: true, type: "update" });
       } else {
-        //add
+        //create
         await axios.post(
           `https://640acb7a65d3a01f98076160.mockapi.io/products`,
           payLoad
         );
+        setShowNotifi({ isShow: true, type: "create" });
       }
       fetchProducts();
     } catch (error) {
       alert(error);
     }
+    // setShowNotifi({ isShow: false, type: "" });
   };
 
   //Select product
@@ -65,6 +74,7 @@ function ProductManagement() {
       await axios.delete(
         `https://640acb7a65d3a01f98076160.mockapi.io/products/${productId}`
       );
+      setShowNotifi({ isShow: true, type: "delete" });
       fetchProducts();
     } catch (error) {
       alert(error);
@@ -78,6 +88,7 @@ function ProductManagement() {
 
   //useEffect
   useEffect(() => {
+    setShowNotifi({ isShow: true, type: "loading" });
     fetchProducts();
   }, [searchByName]);
   return (
@@ -87,8 +98,16 @@ function ProductManagement() {
       <div className="card">
         <div className="card-header text-light bg-dark">Product Form</div>
         <div className="card-body">
-          <ProductForm onSubmit={handleSubmit} product={product} />
+          <ProductForm
+            onResetNoti={() => setShowNotifi({ isShow: false, type: "" })}
+            onSubmit={handleSubmit}
+            product={product}
+          />
         </div>
+      </div>
+
+      <div className="mt-3">
+        {showNotifi.isShow && <Notifi type={showNotifi.type} />}
       </div>
 
       <div className="mt-3 d-flex justify-content-end">
@@ -97,6 +116,7 @@ function ProductManagement() {
 
       <div className="mt-3 ">
         <ProductList
+          onResetNoti={() => setShowNotifi({ isShow: false, type: "" })}
           onSelectProduct={handleSelectProduct}
           onDeleteProduct={handleDeleteProduct}
           products={products}

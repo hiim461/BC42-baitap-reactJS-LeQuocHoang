@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function ProductForm({ onSubmit, product }) {
+function ProductForm({ onSubmit, product, onResetNoti }) {
   //state input
   const [values, setValues] = useState({
     productName: "",
@@ -34,6 +34,7 @@ function ProductForm({ onSubmit, product }) {
       image: "",
       price: "",
     });
+    onResetNoti();
   };
   return (
     <div>
@@ -91,7 +92,11 @@ function ProductForm({ onSubmit, product }) {
         <button type="submit" className="btn btn-success">
           Submit
         </button>
-        <button type="button" onClick={handleResetForm} className="btn btn-secondary ms-1">
+        <button
+          type="button"
+          onClick={handleResetForm}
+          className="btn btn-secondary ms-1"
+        >
           Reset
         </button>
       </form>

@@ -1,6 +1,11 @@
 import React from "react";
 
-function ProductList({ products,onDeleteProduct, onSelectProduct }) {
+function ProductList({
+  products,
+  onDeleteProduct,
+  onSelectProduct,
+  onResetNoti,
+}) {
   return (
     <table className="table">
       <thead>
@@ -20,11 +25,30 @@ function ProductList({ products,onDeleteProduct, onSelectProduct }) {
               <td>{product.productName}</td>
               <td>{product.type}</td>
               <td>{product.description}</td>
-              <td><img src={product.image} alt={product.productName} width="68px" height="68px" /></td>
+              <td>
+                <img
+                  src={product.image}
+                  alt={product.productName}
+                  width="68px"
+                  height="68px"
+                />
+              </td>
               <td>{product.price}</td>
               <td>
-                <button onClick={() => onSelectProduct(product)} className="btn btn-warning">Edit</button>
-                <button onClick={() => onDeleteProduct(product.id)} className="btn btn-danger ms-1">Delete</button>
+                <button
+                  onClick={() => onSelectProduct(product)}
+                  className="btn btn-warning"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => {
+                    onDeleteProduct(product.id);
+                  }}
+                  className="btn btn-danger ms-1"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );
