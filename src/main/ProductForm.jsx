@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function ProductForm({ onSubmit, product, onResetNoti }) {
+function ProductForm({ onSubmit, product, onResetNoti, onResetProduct }) {
   //state input
   const [values, setValues] = useState({
     productName: "",
@@ -35,6 +35,7 @@ function ProductForm({ onSubmit, product, onResetNoti }) {
       price: "",
     });
     onResetNoti();
+    onResetProduct();
   };
   return (
     <div>

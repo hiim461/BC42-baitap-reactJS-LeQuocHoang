@@ -99,6 +99,7 @@ function ProductManagement() {
         <div className="card-header text-light bg-dark">Product Form</div>
         <div className="card-body">
           <ProductForm
+            onResetProduct={() => setProduct({})}
             onResetNoti={() => setShowNotifi({ isShow: false, type: "" })}
             onSubmit={handleSubmit}
             product={product}
