@@ -6,42 +6,44 @@ import "sweetalert2/dist/sweetalert2.min.css";
 
 function Notifi({ type }) {
   const showNotification = (type) => {
+    let notifi = {
+      icon: "success",
+      timer: 1000,
+      timerProgressBar: true,
+    };
     switch (type) {
       case "update":
-        Swal.fire({
+        notifi = {
+          ...notifi,
           title: "Update Success",
           text: "Update product success!",
-          icon: "success",
-          timer: 1000,
-          timerProgressBar: true,
-        });
+        };
+        Swal.fire({ ...notifi });
         break;
       case "create":
-        Swal.fire({
+        notifi = {
+          ...notifi,
           title: "Create Success",
           text: "Create new product success!",
-          icon: "success",
-          timer: 1000,
-          timerProgressBar: true,
-        });
+        };
+        Swal.fire({ ...notifi });
         break;
       case "delete":
-        Swal.fire({
+        notifi = {
+          ...notifi,
           title: "Delete Success",
           text: "Delete product success!",
-          icon: "success",
-          timer: 1000,
-          timerProgressBar: true,
-        });
+        };
+        Swal.fire({ ...notifi });
         break;
       case "loading":
-        Swal.fire({
-          title: "Loading",
-          text: "Loading products..",
-          icon: "info",
+        notifi = {
+          ...notifi,
+          title: "Delete Success",
+          text: "Delete product success!",
           timer: 10000000000000000000,
-          timerProgressBar: true,
-        });
+        };
+        Swal.fire({ ...notifi });
         break;
     }
   };
