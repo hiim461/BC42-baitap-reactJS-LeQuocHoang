@@ -1,5 +1,11 @@
+import ProductManagement from "./main/ProductManagement";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div>
+      <ProductManagement />
+    </div>
+  );
 }
 
 export default App;
