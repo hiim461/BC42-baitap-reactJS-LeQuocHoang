@@ -13,37 +13,25 @@ function Notifi({ type }) {
     };
     switch (type) {
       case "update":
-        notifi = {
+        Swal.fire({
           ...notifi,
           title: "Update Success",
           text: "Update product success!",
-        };
-        Swal.fire({ ...notifi });
+        });
         break;
       case "create":
-        notifi = {
+        Swal.fire({
           ...notifi,
           title: "Create Success",
           text: "Create new product success!",
-        };
-        Swal.fire({ ...notifi });
+        });
         break;
       case "delete":
-        notifi = {
+        Swal.fire({
           ...notifi,
           title: "Delete Success",
           text: "Delete product success!",
-        };
-        Swal.fire({ ...notifi });
-        break;
-      case "loading":
-        notifi = {
-          ...notifi,
-          title: "Delete Success",
-          text: "Delete product success!",
-          timer: 10000000000000000000,
-        };
-        Swal.fire({ ...notifi });
+        });
         break;
     }
   };
