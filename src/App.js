@@ -1,5 +1,7 @@
+import BookTickets from "./main/BookTickets";
+
 function App() {
-  return <div className="App"></div>;
+  return <BookTickets />;
 }
 
 export default App;
