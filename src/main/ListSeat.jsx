@@ -10,12 +10,12 @@ function ListSeat() {
   });
   return (
     <div>
-      <div className=" text-bg-dark">
-        <h3 className="text-center">Screen</h3>
+      <div className="">
+        <h3 className="text-center text-white">Screen</h3>
         <div className={styles.screen}></div>
         <div style={{ height: "50px" }}></div>
       </div>
-      <div className="">
+      <div className="bg-white">
         <ul className="p-0">
           {data.map((item) => {
             return (

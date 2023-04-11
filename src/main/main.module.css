@@ -8,12 +8,12 @@ html {
 .screen {
   width: 100%;
   height: 0;
-  border-top: 50px solid blue;
+  border-top: 50px solid white;
   border-left: 115px solid transparent;
   border-right: 115px solid transparent;
   transform: skew(0deg);
 
-  box-shadow: -0px 50px 45px -20px rgb(224, 242, 249);
+  box-shadow: -0px 40px 25px -20px rgb(224, 242, 249);
 }
 .seat {
   padding: 10px;
@@ -26,6 +26,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
+  font-weight: 700;
 }
 .seatDetails {
   background-color: rgb(64, 63, 63);
@@ -74,4 +76,9 @@ html {
   margin-top: 3px;
   display: flex;
   align-items: center;
+}
+.home {
+  background-image: url("/public/img/bgmovie.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

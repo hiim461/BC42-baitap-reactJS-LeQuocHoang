@@ -2,10 +2,11 @@ import React from "react";
 import main from "./main.module.css";
 import ListSeat from "./ListSeat";
 import DetailsSeat from "./DetailsSeat";
+import styles from "./main.module.css";
 
 function BookTickets() {
   return (
-    <div className="container-fluid">
+    <div className={`container-fluid ${styles.home}`}>
       <h1 className={`bg-warning text-center ${main.header}`}>Ticket Box</h1>
 
       <div className="row mt-3">

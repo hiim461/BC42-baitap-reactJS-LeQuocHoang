@@ -26,7 +26,7 @@ function DetailsSeat() {
     dispatch({ type: "book/cancle", payload: seatId });
   };
   return (
-    <div>
+    <div className="bg-white ps-2 pb-1">
       <h1 className="text-center">Danh sách ghế bạn đang chọn</h1>
       <div className="">
         <div className={styles.desSeat}>
