@@ -1,7 +1,15 @@
 import React from "react";
+import { GoogleLogin } from "react-google-login";
+import DemoLogin from "./DemoLogin";
+import DemoLogout from "./DemoLogout";
 
-function demo() {
-  return <div>demo</div>;
+function Demo() {
+  return (
+    <div>
+      <DemoLogin />
+      <DemoLogout />
+    </div>
+  );
 }
 
-export default demo;
+export default Demo;
